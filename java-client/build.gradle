@@ -1,5 +1,5 @@
 group = 'fr.gplassard.footballdata'
-version = '1.0'
+version "${version}"
 
 buildscript {
     repositories {
@@ -28,11 +28,21 @@ javadoc {
     options.encoding = 'UTF-8'
 }
 
+
 publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/gplassard/football-data-client")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
     publications {
-        maven(MavenPublication) {
-            artifactId = 'javaclient'
-            from components.java
+        gpr(MavenPublication) {
+            from(components.java)
         }
     }
 }
@@ -54,3 +64,6 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
 }
 
+tasks.named('compileJava') {
+    dependsOn(':smithy:codegenJavaClient')
+}
