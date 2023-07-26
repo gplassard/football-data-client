@@ -15,7 +15,7 @@ operation ListCompetitions {
     output:= {
         count: Integer
         filters: CompetititionFilters
-        areas: CompetitionList
+        competitions: CompetitionList
     }
 }
 
