@@ -34,6 +34,6 @@ gpr.key=<github_registry_token>
 ./gradlew release
 ./gradlew release -Prelease.useAutomaticVersion=true
 ./gradlew build
-./gradlew clean java-web-client:publishToMavenLocal
-./gradlew clean smithy:codegenJavaWebClient
+./gradlew clean java-client:publishToMavenLocal
+./gradlew clean smithy:codegenJavaClient
 ```

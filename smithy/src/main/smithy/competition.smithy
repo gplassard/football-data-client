@@ -27,6 +27,8 @@ operation GetCompetition {
         @required
         @httpLabel
         code: String
+        @httpQuery("areas")
+        areas: String
     }
     output: Competition
 }
