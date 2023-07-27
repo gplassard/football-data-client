@@ -14,11 +14,11 @@ operation ListMatchs {
         @httpQuery("ids")
         ids: String
         @httpQuery("date")
-        date: Date
+        date: FullDate
         @httpQuery("dateFrom")
-        dateFrom: Date
+        dateFrom: FullDate
         @httpQuery("dateTo")
-        dateTo: Date
+        dateTo: FullDate
         @httpQuery("status")
         status: String
     }
@@ -83,8 +83,8 @@ structure MatchCompetition {
 
 structure MatchSeason {
     id: Integer
-    startDate: Date
-    endDate: Date
+    startDate: FullDate
+    endDate: FullDate
     currentMatchday: Integer
     // winner: null,
     stages: MatchStagesList

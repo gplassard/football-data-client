@@ -63,8 +63,8 @@ structure CompetitionArea {
 
 structure CompetitionSeason {
     id: Integer
-    startDate: Date
-    endDate: Date
+    startDate: FullDate
+    endDate: FullDate
     currentMatchday: Integer
     winner: CompetitionWinner
 }
